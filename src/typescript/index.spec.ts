@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 
-import * as pkg from './index';
+import * as pkg from '.';
 
 describe('Addon', () => {
 	describe('.sum', () => {
@@ -8,10 +8,10 @@ describe('Addon', () => {
 
 		it('should return the sum of two integer numbers', (done) => {
 			pkg.sum(1, 1, (error, result) => {
-				if (error) {
-					assert.fail(error.message);
-				} else {
+				if (error === null) {
 					assert.strictEqual(result, 2);
+				} else {
+					assert.fail(error.message);
 				}
 
 				done();
@@ -20,10 +20,10 @@ describe('Addon', () => {
 
 		it('should return the sum of two float numbers', (done) => {
 			pkg.sum(1.3, 1.5, (error, result) => {
-				if (error) {
-					assert.fail(error.message);
-				} else {
+				if (error === null) {
 					assert.strictEqual(result, 2.8);
+				} else {
+					assert.fail(error.message);
 				}
 
 				done();

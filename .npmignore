@@ -5,7 +5,10 @@
 .gitignore
 .vsts
 tsconfig.json
-tslint.json
+.eslintrc.json
+
+# Log & Cache files
+.eslintcache
 
 # Output files
 out/tests

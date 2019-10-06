@@ -1,8 +1,0 @@
----
-Language:        Cpp
-BasedOnStyle:    Mozilla
-ColumnLimit:     120
-
-IndentWidth:     8
-UseTab:          Always
-...

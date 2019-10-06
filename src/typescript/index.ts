@@ -8,7 +8,7 @@ export type AddonApi = {
 	sumSync(a: number, b: number): number;
 };
 
-const { sum, sumSync } = bindings('addon.node') as AddonApi;
+const { sum, sumSync } = bindings('../build/index.node') as AddonApi;
 
 export {
 	sum,

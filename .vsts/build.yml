@@ -19,13 +19,13 @@ jobs:
           NODE_VERSION: 12.x
 
         WINDOWS_NODE_8:
-          IMAGE_TYPE: 'windows-latest'
+          IMAGE_TYPE: 'vs2017-win2016'
           NODE_VERSION: 8.x
         WINDOWS_NODE_10:
-          IMAGE_TYPE: 'windows-latest'
+          IMAGE_TYPE: 'vs2017-win2016'
           NODE_VERSION: 10.x
         WINDOWS_NODE_12:
-          IMAGE_TYPE: 'windows-latest'
+          IMAGE_TYPE: 'vs2017-win2016'
           NODE_VERSION: 12.x
 
         MACOS_NODE_8:

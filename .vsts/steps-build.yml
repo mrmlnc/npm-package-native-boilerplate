@@ -3,6 +3,23 @@ steps:
     inputs:
       versionSpec: '${{parameters.node_version}}'
 
+  - script: |
+      export CARGO_HOME="$HOME/.cargo"
+      curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable
+      source /usr/local/cargo/env;
+      echo "##vso[task.setvariable variable=PATH;]$PATH:$HOME/.cargo/bin"
+    displayName: Install rust (MacOS, Ubuntu)
+    condition: ne(variables['Agent.OS'], 'Windows_NT')
+
+  - script: |
+      set CARGO_HOME=%USERPROFILE%\.cargo
+      curl -sSf -o rustup-init.exe https://win.rustup.rs
+      rustup-init.exe -y --default-toolchain stable
+      set PATH=%PATH%;%USERPROFILE%\.cargo\bin
+      echo "##vso[task.setvariable variable=PATH;]%PATH%;%USERPROFILE%\.cargo\bin"
+    displayName: Install rust (Windows)
+    condition: eq(variables['Agent.OS'], 'Windows_NT')
+
   - script: node --version && npm --version
     displayName: Environment information
 
@@ -11,5 +28,5 @@ steps:
     inputs:
       command: install
 
-  - script: npm run compile
-    displayName: Compile Sources
+  - script: npm run build
+    displayName: Build & Compile Sources

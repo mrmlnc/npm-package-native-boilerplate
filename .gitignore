@@ -15,7 +15,9 @@ node_modules/
 .tmp/
 out/
 build/
+target/
 
 # Other files
+Cargo.lock
 package-lock.json
 yarn.lock
